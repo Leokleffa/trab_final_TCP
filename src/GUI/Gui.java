@@ -15,6 +15,9 @@ import javax.swing.DropMode;
 import javax.swing.JProgressBar;
 import javax.swing.JFormattedTextField;
 import javax.swing.JEditorPane;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Gui extends JFrame {
 
@@ -36,7 +39,7 @@ public class Gui extends JFrame {
 		
 		JComboBox listIntruments = new JComboBox();
 		listIntruments.setModel(new DefaultComboBoxModel(new String[] {"AGOGO", "CHURCHORGAN", "HARPSICHORD", "PANFLUTE", "TUBULARBELLS"}));
-		listIntruments.setBounds(301, 96, 117, 24);
+		listIntruments.setBounds(301, 97, 117, 24);
 		contentPane.add(listIntruments);
 		
 		JButton btnPlay = new JButton("PLAY");
@@ -67,7 +70,9 @@ public class Gui extends JFrame {
 		contentPane.add(btnExport);
 		
 		JFormattedTextField frmtdtxtfldNotas = new JFormattedTextField();
-		frmtdtxtfldNotas.setText("NOTAS");
+		frmtdtxtfldNotas.setHorizontalAlignment(SwingConstants.CENTER);
+		frmtdtxtfldNotas.setEditable(false);
+		//frmtdtxtfldNotas.setText("NOTAS");
 		frmtdtxtfldNotas.setBounds(301, 178, 117, 73);
 		contentPane.add(frmtdtxtfldNotas);
 		
@@ -78,8 +83,39 @@ public class Gui extends JFrame {
 		txtBpm.setColumns(10);
 		
 		JEditorPane dtrpnText = new JEditorPane();
+		dtrpnText.setEnabled(true);
 		dtrpnText.setText("Write your text here");
-		dtrpnText.setBounds(24, 12, 265, 123);
+		dtrpnText.setBounds(24, 23, 265, 123);
 		contentPane.add(dtrpnText);
+		
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmtdtxtfldNotas.setText("PLAY!");
+			}
+		});
+		
+		btnPause.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmtdtxtfldNotas.setText("PAUSE!");
+			}
+		});
+		
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmtdtxtfldNotas.setText("RESET!");
+			}
+		});
+		
+		btnOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmtdtxtfldNotas.setText("OPEN FILE!");
+			}
+		});
+		
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmtdtxtfldNotas.setText("EXPORT FILE!");
+			}
+		});
 	}
 }
