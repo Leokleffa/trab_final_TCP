@@ -15,11 +15,11 @@ import GUI.Components.ProgessBar.ProgressBar;
 
 public class Menu {
 	
-	public static JMenuBar initializationTopMenu(JFormattedTextField screen) {
+	public static JMenuBar initializationTopMenu() {
 		JMenuBar menuBar = new JMenuBar();
-		File.initializationMenuFile(menuBar, screen);
-	    Actions.initializationMenuActions(menuBar, screen);
-	    Help.initializationMenuHelp(menuBar, screen);	    
+		//File.initializationMenuFile(menuBar);
+	    //Actions.initializationMenuActions(menuBar);
+	    Help.initializationMenuHelp(menuBar);	    
 	    return menuBar;
 	}
 }

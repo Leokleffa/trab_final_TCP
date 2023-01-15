@@ -5,10 +5,17 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class Screen {
-	public static void initializationScreen(JPanel contentPane, JFormattedTextField screen) {
+	private static JFormattedTextField screen = new JFormattedTextField();;
+	
+	public static void initializationScreen(JPanel contentPane) {
 		screen.setHorizontalAlignment(SwingConstants.CENTER);
 		screen.setEditable(false);
 		screen.setBounds(301, 178, 117, 73);
 		contentPane.add(screen);
 	}
+	
+	public static void setTextScreen(String text) {
+		screen.setText(text);
+	}	
+	
 }
