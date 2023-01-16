@@ -11,7 +11,7 @@ public class EditorText {
 	
 	public static void initializationEditorText(JPanel contentPane) {
 		EditorText.ableTextEdition();
-		editorText.setBounds(24, 24, 265, 123);
+		editorText.setBounds(24, 12, 265, 123);
 		contentPane.add(editorText);
 	}
 	

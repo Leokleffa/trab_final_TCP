@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="GUI/Components/ProgessBar/GUI/Components/ProgessBar/" kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/leokl/eclipse-workspace/TrabFinalTCP/lib/jfugue-5.0.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
