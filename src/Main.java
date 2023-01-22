@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 
-import GUI.Gui;
+
+import gui.Gui;
 public class Main {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
