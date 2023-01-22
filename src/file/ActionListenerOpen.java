@@ -6,12 +6,11 @@ import gui.components.Screen;
 
 public class ActionListenerOpen implements ActionListener {
 	//coloca atributos para receber os argumentos
-	private String filePath;
+
 	private String fileContent;
 	
-	public ActionListenerOpen(String filePath, String fileContent){
+	public ActionListenerOpen(String fileContent){
 		//this.argumentos = argumentos;
-		this.filePath = filePath;
 		this.fileContent = fileContent;		
 	}
 	
@@ -20,5 +19,16 @@ public class ActionListenerOpen implements ActionListener {
 		Screen.setTextScreen("OPEN FILE!");
 	}
 	
+	
+	public String pickContent(){
+		open = new open();
+		
+		open.pathFileSelector();
+		open.scanfile();
+		
+		this.fileContent = open.getFileContent();
+		
+		return this.fileContent;
+	}
 	
 }
