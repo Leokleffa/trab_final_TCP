@@ -17,18 +17,19 @@ public class ActionListenerOpen implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Screen.setTextScreen("OPEN FILE!");
+		pickContent();
+		EditorPane.setTextPane(this.fileContent);
+		
 	}
 	
 	
-	public String pickContent(){
+	public void pickContent(){
 		open = new open();
 		
 		open.pathFileSelector();
 		open.scanfile();
 		
 		this.fileContent = open.getFileContent();
-		
-		return this.fileContent;
 	}
 	
 }
