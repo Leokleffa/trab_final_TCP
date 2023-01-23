@@ -8,7 +8,7 @@ import gui.components.menu.*;
 import gui.components.buttons.*;
 
 public class Gui extends JFrame {
-
+	
 	private static JPanel contentPane;
 	private static Play play;
 	private static Pause pause;
@@ -18,13 +18,14 @@ public class Gui extends JFrame {
 	
 	public Gui(){
 		contentPane = new JPanel();
-		
+		//Panel initialization
 		super.setTitle("Gerador de Música a partir de Texto");
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setBounds(100, 100, 450, 314);
 		super.setContentPane(contentPane);
 		super.setJMenuBar(Menu.initializationTopMenu());
 		
+		//content initialization
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		initializationButtons();

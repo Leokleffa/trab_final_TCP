@@ -6,6 +6,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import file.*;
+import gui.components.EditorText;
 import gui.components.Screen;
 
 public class File {
@@ -20,7 +21,7 @@ public class File {
 	private static void initializationMenuFileOpen(JMenu menuFile) {
 		JMenuItem menuFileOpen = new JMenuItem("Open");
 	    menuFile.add(menuFileOpen);
-	    menuFileOpen.addActionListener(new ActionListenerOpen());
+	    menuFileOpen.addActionListener(new ActionListenerOpen(EditorText.getTextEditorPane()));
 	}
 	
 	private static void initializationMenuFileExport(JMenu menuFile) {

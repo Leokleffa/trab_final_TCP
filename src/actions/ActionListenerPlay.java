@@ -16,12 +16,12 @@ public class ActionListenerPlay implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Screen.setTextScreen("PLAY!");
 		Gui.protectPlay();
 		EditorText.setTextEditorPane("Oi, meu chapa!\nTudo bem?\n");
-		Screen.setTextScreen(EditorText.getTextEditorPane());
+		Screen.setTextScreen("PLAY!");
 		ProgressBar.updateProgressbar();
 		//depois de acabar
 		//Bottons.notPlaying(); //colocar qnd Play estiver pronta
 	} 
+	
 }	

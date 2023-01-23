@@ -14,6 +14,7 @@ public class ProgressBar {
 		contentPane.add(progressBar);
 		progressBar.setValue(0);
 	}
+	
 	public static void updateProgressbar() {
 		int soma = 1;
 		try {
