@@ -1,6 +1,8 @@
 package file;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.File;
@@ -16,6 +18,12 @@ public class Open {
 
 	public void pathFileSelector(){
 		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivo .txt", "txt");
+		
+		chooser.setFileFilter(filter);
+		chooser.setAcceptAllFileFilterUsed(false);
+		chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		
 		chooser.showOpenDialog(null);
 		File f = chooser.getSelectedFile();
 		if(f != null) {

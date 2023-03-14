@@ -20,7 +20,6 @@ public class ActionListenerOpen implements ActionListener {
 		try {
 			pickContent();
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		EditorText.setTextEditorPane(this.fileContent);		
