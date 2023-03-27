@@ -66,7 +66,7 @@ public class Parser implements Runnable {
 	
 	private void setVolume(int newVolume) {
 		this.musicProperties.setVolume(newVolume);
-		this.musicPattern.add("X[Volume]=" + Integer.toString(this.musicProperties.getVolume()));
+		this.musicPattern.add(":CON(7," + Integer.toString(this.musicProperties.getVolume()) + ")");
 	}
 	
 	private void initPattern() {
