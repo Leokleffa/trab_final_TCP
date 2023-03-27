@@ -12,9 +12,6 @@ public class MsgHelp extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public MsgHelp() {
 		setTitle("Help");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -26,7 +23,8 @@ public class MsgHelp extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		
 		JTextPane txtpnTextoAqui = new JTextPane();
-		txtpnTextoAqui.setText("texto aqui\nDá para fazer um arquivo, leia e coloque o conteúdo aqui");
+		txtpnTextoAqui.setEditable(false);
+		txtpnTextoAqui.setText("");
 		contentPane.add(txtpnTextoAqui, "name_105970486362763");
 	}
 }

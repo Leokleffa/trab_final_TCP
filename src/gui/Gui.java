@@ -3,68 +3,103 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import actions.ActionListenerExport;
+import actions.ActionListenerOpen;
+import actions.ActionListenerPlay;
+import actions.ActionListenerReset;
+import actions.ActionListenerStop;
+import actions.ControllerPlayer;
 import gui.components.*;
 import gui.components.menu.*;
-import gui.components.buttons.*;
 
 public class Gui extends JFrame {
+	private static ControllerPlayer player = new ControllerPlayer();
 	
-	private static JPanel contentPane;
-	private static Play play;
-	private static Pause pause;
-	private static Reset reset;
-	private static Open open;
-	private static Export export;
+	private static JPanel contentPane = new JPanel();
 	
-	public Gui(){
-		contentPane = new JPanel();
-		//Panel initialization
+	private static Menu menu;
+	
+	private static ListInstruments listInstruments;
+	private static EditorText editorText;
+	
+	private static Buttons play;
+	private static Buttons stop;
+	private static Buttons reset;
+	private static Buttons open;
+	private static Buttons export;
+	
+	public Gui(){		
+		panelInitialization();
+		
+		initializationContent();
+		
+		Screen.initializationScreen(contentPane);
+		initializationEditorText(contentPane);	
+		initializationListInstruments(contentPane);
+		initializationButtons(contentPane);
+		initializationMenu(contentPane);
+		notPlaying();
+	}
+
+	private void initializationContent() {
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+	}
+
+	private void panelInitialization() {
+		super.setResizable(false);
 		super.setTitle("Gerador de Música a partir de Texto");
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setBounds(100, 100, 450, 314);
 		super.setContentPane(contentPane);
-		super.setJMenuBar(Menu.initializationTopMenu());
-		
-		//content initialization
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(null);
-		initializationButtons();
-		Screen.initializationScreen(contentPane);
-		ListInstruments.initializationListInstruments((contentPane));
-		EditorText.initializationEditorText(contentPane);	
-		ProgressBar.initializationProgressBar(contentPane);
 	}
 	
-	private static void initializationButtons() {
-		play = new Play("PLAY", 24, 189, 81, 62);
-		pause = new Pause("PAUSE", 116, 189, 81, 62);
-		reset = new Reset("RESET", 208, 189, 81, 62);
-		open = new Open("OPEN", 301, 12, 117, 25);
-		export = new Export("EXPORT", 301, 49, 117, 25);
+	private void initializationMenu(JPanel contentPane) {
+		super.setJMenuBar(menu = new Menu(listInstruments, editorText, player));
+	}
+	
+	private void initializationEditorText(JPanel contentPane) {
+		editorText = new EditorText(contentPane);
+	}
+
+	private void initializationListInstruments(JPanel contentPane) {
+		listInstruments = new ListInstruments(contentPane);
 		
-		contentPane.add(play.inicializaBtn());
-		contentPane.add(pause.inicializaBtn());
-		contentPane.add(reset.inicializaBtn());
-		contentPane.add(open.inicializaBtn());
-		contentPane.add(export.inicializaBtn());
+	}
+
+	private static void initializationButtons(JPanel contentPane) {
+		play = new Buttons("PLAY", 24, 189, 81, 62, new ActionListenerPlay(listInstruments, editorText, player));
+		stop = new Buttons("STOP", 116, 189, 81, 62, new ActionListenerStop(player));
+		reset = new Buttons("RESET", 208, 189, 81, 62, new ActionListenerReset(player));
+		open = new Buttons("OPEN", 301, 12, 117, 25, new ActionListenerOpen(editorText));
+		export = new Buttons("EXPORT", 301, 49, 117, 25, new ActionListenerExport(listInstruments, editorText));
+		
+		contentPane.add(play);
+		contentPane.add(stop);
+		contentPane.add(reset);
+		contentPane.add(open);
+		contentPane.add(export);
 	}
 	
 	public static void protectPlay() {
-		EditorText.disableTextEdition();
-		reset.setDisabled();
+		editorText.disableTextEdition();
+		menu.disableMenu();
+		reset.setEnabled();
+		stop.setEnabled();
 		open.setDisabled();
 		export.setDisabled();
 		play.setDisabled();
-		ListInstruments.disableListInstrument();
+		listInstruments.disableListInstrument();
 	}
 	
 	public static void notPlaying() {
-		EditorText.ableTextEdition();
-		reset.setEnabled();
+		editorText.ableTextEdition();
+		menu.ableMenu();
+		reset.setDisabled();
+		stop.setDisabled();
 		open.setEnabled();
 		export.setEnabled();
 		play.setEnabled();
-		ListInstruments.ableListInstrument();
+		listInstruments.ableListInstrument();
 	}
-	
 }
