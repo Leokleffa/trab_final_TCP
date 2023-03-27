@@ -8,9 +8,9 @@ public class Music {
 	
 	public static final String DefaultDuration = "q";
 	
-	public static final int DefaultVolume = 8000;
+	public static final int DefaultVolume = 63;
 	public static final int MinVolume = 0;
-	public static final int MaxVolume = 16383;
+	public static final int MaxVolume = 127;
 	
 	public static final Instruments DefaultInstrument = Instruments.AcousticGrandPiano;
 	
