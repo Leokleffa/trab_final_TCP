@@ -1,0 +1,21 @@
+GERADOR DE MÚSICA A PARTIR DE TEXTO
+
+O programa recebe um texto (Pelo editor de texto ou por um arquivo .txt) como entrada 
+e gera (o som ou um arquivo .midi) um conjunto de notas  correspondentes ao texto segundo 
+alguns parâmetros (timbre, ritmo – na forma de Beats por Minuto ou BPM, etc).
+
+USO:
+
+	- Play: Converte texto visível em sons;
+	
+	- Stop: Para a reprodução do som;
+	
+	- Reset: Recomeça a reprodução do som;
+	
+	- Open: Abre janela para carregar arquivo de texto;
+	
+	- Export: Salva som gerado em um arquivo .MIDI;
+	
+Na caixa de seleção, é possível escolher o instrumento que vai começar a tocar
+(podendo mudar durante a reprodução conforme o texto de entrada);
+
